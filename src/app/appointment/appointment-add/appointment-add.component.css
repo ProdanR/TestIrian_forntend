@@ -1,0 +1,35 @@
+.example-full-width {
+  width: 100%;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.main-div {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.example-viewport {
+  height: 200px;
+  width: 100%;
+
+
+}
+
+.example-item-detail {
+  height: 18px;
+
+}
+
+.example-alternate {
+  background: rgba(127, 127, 127, 0.3);
+}
+
+.example-viewport::-webkit-scrollbar {
+  display: none;
+}

@@ -12,10 +12,10 @@ td, th {
 }
 
 .created_status{
-  color: green;
+  color: #34a853;
 }
 
 .confirmed_status{
-  color: blue;
+  color: #4285f4;
 }
 

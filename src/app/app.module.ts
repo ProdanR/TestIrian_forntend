@@ -12,13 +12,23 @@ import {MatInputModule} from '@angular/material/input';
 import { DiagnosticDialogComponent } from './diagnostic-dialog/diagnostic-dialog.component';
 import { MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { HomeComponent } from './home/home.component';
+import { AppointmentAddComponent } from './appointment/appointment-add/appointment-add.component';
+import {MatIconModule} from '@angular/material/icon';
+import {FormsModule} from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AppointmentListComponent,
-    DiagnosticDialogComponent
+    DiagnosticDialogComponent,
+    HomeComponent,
+    AppointmentAddComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +39,13 @@ import {MatButtonModule} from '@angular/material/button';
     MatPaginatorModule,
     MatInputModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    FormsModule,
+    MatCardModule,
+    ScrollingModule,
+    MatSlideToggleModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
