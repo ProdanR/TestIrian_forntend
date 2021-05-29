@@ -33,3 +33,7 @@
 .example-viewport::-webkit-scrollbar {
   display: none;
 }
+
+.button_service{
+  border-radius: 0px  10px  10px 0px;
+}

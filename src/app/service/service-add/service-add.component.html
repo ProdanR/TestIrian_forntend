@@ -1,0 +1,27 @@
+<div class="main-div">
+  <mat-card class="example-card">
+
+    <!-- Form to add a new Service-->
+    <form name="form_service" (ngSubmit)="f1.form.valid && addNewService()" class="example-form" #f1="ngForm">
+
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Service</mat-label>
+        <input matInput name="serviceName" type="text" [(ngModel)]="service.name" required>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Price</mat-label>
+        <input matInput name="servicePrice" type="number" [(ngModel)]="service.price" required>
+      </mat-form-field>
+
+
+      <button routerLink="/new-appointment" type="submit" mat-flat-button color="accent" class="example-full-width" style="margin-top: -5px">Add
+        Service
+      </button>
+
+
+    </form>
+
+  </mat-card>
+</div>

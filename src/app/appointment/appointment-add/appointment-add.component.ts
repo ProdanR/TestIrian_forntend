@@ -10,17 +10,9 @@ import {Router} from '@angular/router';
 export class AppointmentAddComponent implements OnInit {
 
 
-  appointment: IAppointment = {
-    _id: '',
-    animalName: '',
-    dateHour: '',
-    diagnostic: '',
-    doctorName: '',
-    services: [],
-    status: 'created',
-    totalCost: 0
-  };
-  service: any = {};
+  // @ts-ignore
+  appointment: IAppointment = {};
+
 
   constructor(private router: Router) {
   }
@@ -35,8 +27,5 @@ export class AppointmentAddComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
-  // tslint:disable-next-line:typedef
-  addNewService() {
-    console.log('add new service');
-  }
+
 }
