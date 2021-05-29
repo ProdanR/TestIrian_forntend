@@ -20,6 +20,8 @@ import {MatCardModule} from '@angular/material/card';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { ServiceAddComponent } from './service/service-add/service-add.component';
+import { ServiceListComponent } from './service/service-list/service-list.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AppointmentListComponent,
     DiagnosticDialogComponent,
     HomeComponent,
-    AppointmentAddComponent
+    AppointmentAddComponent,
+    ServiceAddComponent,
+    ServiceListComponent
   ],
   imports: [
     BrowserModule,

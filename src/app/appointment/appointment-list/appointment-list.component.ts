@@ -28,7 +28,7 @@ export class AppointmentListComponent implements OnInit, AfterViewInit {
 
   users: IAppointment[] = [
     {
-      _id: '1',
+      id: '1',
       animalName: 'cutu',
       dateHour: '5/28/2021 12:00',
       doctorName: 'doctor1',
@@ -38,7 +38,7 @@ export class AppointmentListComponent implements OnInit, AfterViewInit {
       totalCost: 10,
     },
     {
-      _id: '1',
+      id: '1',
       animalName: 'pisi',
       dateHour: '5/28/2021 12:00',
       doctorName: 'popescu',
@@ -48,7 +48,7 @@ export class AppointmentListComponent implements OnInit, AfterViewInit {
       totalCost: 10,
     },
     {
-      _id: '1',
+      id: '1',
       animalName: 'leu',
       dateHour: '5/28/2021 12:00',
       doctorName: 'ionescu',
@@ -58,7 +58,7 @@ export class AppointmentListComponent implements OnInit, AfterViewInit {
       totalCost: 10,
     },
     {
-      _id: '1',
+      id: '1',
       animalName: 'leu',
       dateHour: '5/28/2021 12:00',
       doctorName: 'ionescu',
@@ -68,7 +68,7 @@ export class AppointmentListComponent implements OnInit, AfterViewInit {
       totalCost: 10,
     },
     {
-      _id: '1',
+      id: '1',
       animalName: 'leu',
       dateHour: '5/28/2021 12:00',
       doctorName: 'ionescu',
@@ -78,7 +78,7 @@ export class AppointmentListComponent implements OnInit, AfterViewInit {
       totalCost: 10,
     },
     {
-      _id: '1',
+      id: '1',
       animalName: 'leu',
       dateHour: '5/28/2021 12:00',
       doctorName: 'ionescu',
