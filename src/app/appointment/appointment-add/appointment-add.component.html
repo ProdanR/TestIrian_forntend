@@ -1,0 +1,78 @@
+<div class="main-div">
+  <mat-card class="example-card">
+
+    <form name="form" (ngSubmit)="f.form.valid && addAppointment()" class="example-form" #f="ngForm">
+
+      <!-- animalName Input -->
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Animal Name</mat-label>
+        <input matInput name="animalName" [(ngModel)]="appointment.animalName" required>
+      </mat-form-field>
+
+      <!-- dateHour Input -->
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Appointment Date</mat-label>
+        <input matInput name="dateHour" type="datetime-local" [(ngModel)]="appointment.dateHour" required>
+      </mat-form-field>
+
+      <!-- doctorName Input -->
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Doctor Name</mat-label>
+        <input matInput name="doctorName" [(ngModel)]="appointment.doctorName" required>
+      </mat-form-field>
+
+
+      <!-- Form to add a new Service-->
+      <form name="form_service" (ngSubmit)="f1.form.valid && addNewService()" class="example-form" #f1="ngForm">
+        <mat-grid-list cols="3" rowHeight="3:1">
+
+          <mat-grid-tile>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Service</mat-label>
+              <input  matInput name="serviceName" type="text" [(ngModel)]="service.name" required>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Price</mat-label>
+              <input  matInput name="servicePrice" type="number"  [(ngModel)]="service.price" required>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <button type="submit" mat-flat-button color="warn" class="example-full-width" style="margin-top: -5px">Add
+              Service
+            </button>
+          </mat-grid-tile>
+
+        </mat-grid-list>
+      </form>
+
+      <!-- Scroll pt vizualizare servicii si alege din ele-->
+      <!--   DO A *NGFOR on Services, and make a component for each of them  -->
+      <cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="example-viewport">
+        <mat-slide-toggle class="example-full-width" name="service1" [(ngModel)]="appointment.services">
+          Deparazitare: 14$
+        </mat-slide-toggle>
+        <mat-slide-toggle class="example-full-width" name="service2" [(ngModel)]="appointment.services">
+          Curatarea canini: 7$
+        </mat-slide-toggle>
+        <mat-slide-toggle class="example-full-width" name="service3" [(ngModel)]="appointment.services">
+          Ingrizirea stapan cu lesa: 13$
+        </mat-slide-toggle>
+        <mat-slide-toggle class="example-full-width" name="service4" [(ngModel)]="appointment.services">
+          Pedepsire la colt fara mancare: 100$
+        </mat-slide-toggle>
+      </cdk-virtual-scroll-viewport>
+
+      <textarea name="doctorName" [(ngModel)]="appointment.diagnostic" class="example-full-width"
+                style="max-width: 394px" placeholder="Add the diagnostic">
+      </textarea>
+
+      <button type="submit" mat-flat-button color="warn" class="example-full-width">Add this new Appointment</button>
+
+
+    </form>
+  </mat-card>
+</div>
