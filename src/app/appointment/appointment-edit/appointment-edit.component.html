@@ -21,13 +21,13 @@
       <!-- dateHour Input -->
       <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>Appointment Date</mat-label>
-        <input matInput name="dateHour" type="datetime-local" [(ngModel)]="appointment.dateHour" required>
+        <input matInput name="appointmentDateTime" type="datetime-local" [(ngModel)]="appointment.appointmentDateTime" required>
       </mat-form-field>
 
       <!-- doctorName Select -->
       <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>Choose a doctor</mat-label>
-        <mat-select name="doctorName" [(ngModel)]="appointment.doctorName" required>
+        <mat-select name="doctorId" [(ngModel)]="appointment.doctorId" required>
           <mat-option value="option1">Option 1</mat-option>
           <mat-option value="option2">Option 2</mat-option>
           <mat-option value="option3">Option 3</mat-option>

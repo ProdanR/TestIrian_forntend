@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IService} from '../service.model';
 import {Router} from '@angular/router';
+import {ServiceService} from '../../rest_services/service.service';
 
 @Component({
   selector: 'app-service-add',
@@ -12,7 +13,7 @@ export class ServiceAddComponent implements OnInit {
   // @ts-ignore
   service: IService = {};
 
-  constructor(private router: Router) {
+  constructor(private serviceService: ServiceService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -20,6 +21,15 @@ export class ServiceAddComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   addNewService() {
-    this.router.navigate(['new-appointment']);
+    console.log(this.service);
+    this.serviceService.addService(this.service).subscribe(
+      (data) => {
+        console.log(data);
+        this.router.navigate(['new-appointment']);
+      },
+      error => {
+        console.log(error);
+      });
+
   }
 }

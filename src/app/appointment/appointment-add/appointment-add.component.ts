@@ -1,6 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {IAppointment} from '../appointment.model';
 import {Router} from '@angular/router';
+import {ServiceService} from '../../rest_services/service.service';
+import {IService} from '../../service/service.model';
+import {DoctorService} from '../../rest_services/doctor.service';
+import {IDoctor} from '../../doctor/doctor.model';
+import {MatTableDataSource} from '@angular/material/table';
+import {AppointmentService} from '../../rest_services/appointment.service';
 
 @Component({
   selector: 'app-appointment-add',
@@ -12,20 +18,41 @@ export class AppointmentAddComponent implements OnInit {
 
   // @ts-ignore
   appointment: IAppointment = {};
+  // @ts-ignore
+  doctors: any = [];
 
-
-  constructor(private router: Router) {
+  constructor(private appointmentService: AppointmentService, private doctorService: DoctorService, private router: Router) {
   }
 
   ngOnInit(): void {
-
+    this.doctorService.getAllDoctors().subscribe(
+      (data: any) => {
+        console.log(data);
+        this.doctors = data;
+      },
+      error => {
+        console.log(error);
+      });
   }
 
   // tslint:disable-next-line:typedef
   addAppointment() {
-    console.log('add new appointment');
-    this.router.navigate(['home']);
+    this.appointmentService.addAppointment(this.appointment).subscribe(
+      (data) => {
+        console.log(data);
+        this.router.navigate(['home']);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
+
   }
 
 
+  // tslint:disable-next-line:typedef
+  addService(event: any[]) {
+    this.appointment.services = event;
+  }
 }

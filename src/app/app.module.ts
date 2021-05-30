@@ -26,6 +26,7 @@ import { DoctorAddComponent } from './doctor/doctor-add/doctor-add.component';
 import {MatSelectModule} from '@angular/material/select';
 import { AppointmentEditComponent } from './appointment/appointment-edit/appointment-edit.component';
 import {MatRadioModule} from '@angular/material/radio';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatSlideToggleModule,
     MatGridListModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
