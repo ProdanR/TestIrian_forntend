@@ -16,7 +16,7 @@ import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 // @ts-ignore
 export class AppointmentListComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['animalName', 'doctorName', 'dateHour', 'status', 'diagnostic', 'totalCost'];
+  displayedColumns: string[] = ['animalName', 'doctorName', 'dateHour', 'status', 'diagnostic', 'totalCost','edit'];
   // @ts-ignore
   dataSource: MatTableDataSource<IAppointment>;
 
@@ -38,7 +38,7 @@ export class AppointmentListComponent implements OnInit, AfterViewInit {
       totalCost: 10,
     },
     {
-      id: '1',
+      id: '2',
       animalName: 'pisi',
       dateHour: '5/28/2021 12:00',
       doctorName: 'popescu',
@@ -48,7 +48,7 @@ export class AppointmentListComponent implements OnInit, AfterViewInit {
       totalCost: 10,
     },
     {
-      id: '1',
+      id: '3',
       animalName: 'leu',
       dateHour: '5/28/2021 12:00',
       doctorName: 'ionescu',
