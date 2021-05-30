@@ -3,3 +3,11 @@
   padding: 20px;
   width: 120px;
 }
+
+.button_newDoctor{
+  float: left;
+  height: 50px;
+  border-radius: 0px  10px  10px 0px;
+  margin-top: 21px;
+}
+

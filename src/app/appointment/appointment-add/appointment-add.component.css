@@ -7,7 +7,7 @@
 }
 
 .main-div {
-  height: 100vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,3 +37,10 @@
 .button_service{
   border-radius: 0px  10px  10px 0px;
 }
+
+
+.button_back{
+  border-radius: 0px  10px  10px 0px;
+  margin-top: 21px;
+}
+
