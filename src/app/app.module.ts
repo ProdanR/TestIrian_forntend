@@ -24,6 +24,8 @@ import { ServiceAddComponent } from './service/service-add/service-add.component
 import { ServiceListComponent } from './service/service-list/service-list.component';
 import { DoctorAddComponent } from './doctor/doctor-add/doctor-add.component';
 import {MatSelectModule} from '@angular/material/select';
+import { AppointmentEditComponent } from './appointment/appointment-edit/appointment-edit.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import {MatSelectModule} from '@angular/material/select';
     AppointmentAddComponent,
     ServiceAddComponent,
     ServiceListComponent,
-    DoctorAddComponent
+    DoctorAddComponent,
+    AppointmentEditComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import {MatSelectModule} from '@angular/material/select';
     ScrollingModule,
     MatSlideToggleModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

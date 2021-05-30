@@ -1,0 +1,49 @@
+.example-full-width {
+  width: 100%;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.main-div {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.example-viewport {
+  height: 200px;
+  width: 100%;
+
+
+}
+
+.example-item-detail {
+  height: 18px;
+
+}
+
+.example-alternate {
+  background: rgba(127, 127, 127, 0.3);
+}
+
+.example-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.button_service{
+  border-radius: 0px  10px  10px 0px;
+}
+
+
+.button_back{
+  border-radius: 0px  10px  10px 0px;
+  margin-top: 21px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 79px;
+}
