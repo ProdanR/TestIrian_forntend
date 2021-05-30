@@ -22,6 +22,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ServiceAddComponent } from './service/service-add/service-add.component';
 import { ServiceListComponent } from './service/service-list/service-list.component';
+import { DoctorAddComponent } from './doctor/doctor-add/doctor-add.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { ServiceListComponent } from './service/service-list/service-list.compon
     HomeComponent,
     AppointmentAddComponent,
     ServiceAddComponent,
-    ServiceListComponent
+    ServiceListComponent,
+    DoctorAddComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { ServiceListComponent } from './service/service-list/service-list.compon
     MatCardModule,
     ScrollingModule,
     MatSlideToggleModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

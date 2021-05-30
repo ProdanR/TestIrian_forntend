@@ -1,3 +1,5 @@
+<button routerLink="/home" class="button_back" mat-raised-button color="primary">Back Home</button>
+
 <div class="main-div">
 
   <mat-card class="example-card">
@@ -16,11 +18,16 @@
         <input matInput name="dateHour" type="datetime-local" [(ngModel)]="appointment.dateHour" required>
       </mat-form-field>
 
-      <!-- doctorName Input -->
+      <!-- doctorName Select -->
       <mat-form-field appearance="fill" class="example-full-width">
-        <mat-label>Doctor Name</mat-label>
-        <input matInput name="doctorName" [(ngModel)]="appointment.doctorName" required>
+        <mat-label>Choose a doctor</mat-label>
+        <mat-select name="doctorName" [(ngModel)]="appointment.doctorName" required>
+          <mat-option value="option1">Option 1</mat-option>
+          <mat-option value="option2">Option 2</mat-option>
+          <mat-option value="option3">Option 3</mat-option>
+        </mat-select>
       </mat-form-field>
+
 
       <app-service-list></app-service-list>
 

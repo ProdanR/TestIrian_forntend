@@ -1,0 +1,24 @@
+<button routerLink="/home" class="button_back" mat-raised-button color="primary">Back Home</button>
+
+<div class="main-div">
+
+  <mat-card class="example-card">
+
+    <!-- Form to add a new Doctor-->
+    <form name="form_doctor" (ngSubmit)="f1.form.valid && addNewDoctor()" class="example-form" #f1="ngForm">
+
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Doctor Name</mat-label>
+        <input matInput name="doctorName" type="text" [(ngModel)]="doctor.name" required>
+      </mat-form-field>
+
+
+      <button type="submit" mat-flat-button color="warn" class="example-full-width" style="margin-top: -5px">Add
+        Doctor
+      </button>
+
+
+    </form>
+
+  </mat-card>
+</div>
