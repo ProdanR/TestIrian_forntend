@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {IService} from '../../service/service.model';
 import {IDoctor} from '../doctor.model';
 import {Router} from '@angular/router';
+import {DoctorService} from '../../rest_services/doctor.service';
 
 @Component({
   selector: 'app-doctor-add',
@@ -14,7 +14,7 @@ export class DoctorAddComponent implements OnInit {
   // @ts-ignore
   doctor: IDoctor = {};
 
-  constructor(private router: Router) {
+  constructor(private  doctorService: DoctorService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -22,6 +22,12 @@ export class DoctorAddComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   addNewDoctor() {
-    this.router.navigate(['home']);
+    this.doctorService.addDoctor(this.doctor).subscribe((data) => {
+      console.log(data);
+      this.router.navigate(['home']);
+    }, error => {
+      console.log(error);
+    });
+
   }
 }

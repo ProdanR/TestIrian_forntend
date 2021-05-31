@@ -1,16 +1,18 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit, Output, ViewChild, EventEmitter} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {IAppointment} from '../../appointment/appointment.model';
 import {IService} from '../service.model';
 import {MatPaginator} from '@angular/material/paginator';
-import {MatSlideToggleChange} from '@angular/material/slide-toggle';
+import {MatSlideToggle, MatSlideToggleChange} from '@angular/material/slide-toggle';
+import {ServiceService} from '../../rest_services/service.service';
+
 
 @Component({
   selector: 'app-service-list',
   templateUrl: './service-list.component.html',
   styleUrls: ['./service-list.component.css']
 })
-export class ServiceListComponent implements OnInit, AfterViewInit {
+export class ServiceListComponent implements OnInit {
   displayedColumns: string[] = ['active', 'name', 'price'];
   // @ts-ignore
   dataSource: MatTableDataSource<IService>;
@@ -18,59 +20,60 @@ export class ServiceListComponent implements OnInit, AfterViewInit {
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  services: IService[] = [
-    {
-      id: '1',
-      name: 'vacinare',
-      price: 20,
-      active: true,
-    },
-    {
-      id: '2',
-      name: 'vacinare2',
-      price: 20,
-      active: false,
-    },
-    {
-      id: '3',
-      name: 'vacinare3',
-      price: 20,
-      active: true,
-    },
-    {
-      id: '1',
-      name: 'deparazitare',
-      price: 20,
-      active: true,
-    },
-    {
-      id: '2',
-      name: 'curatare',
-      price: 20,
-      active: false,
-    },
-    {
-      id: '3',
-      name: 'papabun',
-      price: 20,
-      active: true,
-    },
-  ];
+  @Output() serviceEvent = new EventEmitter<any[]>();
 
-  constructor() {
+
+  // @ts-ignore
+  services: any = [];
+
+  @Input()
+  selectedServiceId: any = [];
+
+  constructor(private serviceService: ServiceService) {
   }
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.services);
+    this.serviceService.getAllServices().subscribe(
+      (data: any) => {
+        console.log(data);
+        this.services = data;
+      },
+      error => {
+        console.log(error);
+      },
+      () => {
+
+
+        console.log(this.services);
+
+        // tslint:disable-next-line:only-arrow-functions
+        this.selectedServiceId.forEach((value: any) => {
+          let index = this.services.findIndex(((ser: { id: number; }) => ser.id === value));
+          this.services[index].active = true;
+
+
+        });
+
+        console.log(this.services);
+        //
+        // @ts-ignore
+        this.dataSource = new MatTableDataSource(this.services);
+        this.dataSource.paginator = this.paginator;
+      }
+    );
   }
 
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-  }
 
   // tslint:disable-next-line:typedef
-  toggle(event: MatSlideToggleChange, serviceId: number) {
-    console.log(event.checked);
-    console.log(serviceId);
+  toggle(event: MatSlideToggleChange, row: any) {
+    row.active = event.checked;
+
+    if (event.checked) {
+      this.selectedServiceId.push(row.id);
+    } else {
+      const index = this.selectedServiceId.indexOf(row.id);
+      this.selectedServiceId.splice(index, 1);
+    }
+    this.serviceEvent.emit(this.selectedServiceId);
   }
 }
