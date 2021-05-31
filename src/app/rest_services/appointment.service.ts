@@ -20,4 +20,14 @@ export class AppointmentService {
   getAllAppointments() {
     return this.http.get(this.url + 'all');
   }
+
+  // tslint:disable-next-line:typedef
+  getAppointmentById(appointmentId: number) {
+    return this.http.get(this.url + 'get/' + appointmentId);
+  }
+
+  // tslint:disable-next-line:typedef
+  updateAppointment(appointment: any, appointmentId: number, doctorId: number) {
+    return this.http.put(this.url + 'update/' + appointmentId + '/' + doctorId, appointment);
+  }
 }

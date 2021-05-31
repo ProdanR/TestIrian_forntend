@@ -3,7 +3,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {IAppointment} from '../../appointment/appointment.model';
 import {IService} from '../service.model';
 import {MatPaginator} from '@angular/material/paginator';
-import {MatSlideToggleChange} from '@angular/material/slide-toggle';
+import {MatSlideToggle, MatSlideToggleChange} from '@angular/material/slide-toggle';
 import {ServiceService} from '../../rest_services/service.service';
 
 
@@ -22,8 +22,11 @@ export class ServiceListComponent implements OnInit {
 
   @Output() serviceEvent = new EventEmitter<any[]>();
 
+
   // @ts-ignore
-  services: IService = [];
+  services: any = [];
+
+  @Input()
   selectedServiceId: any = [];
 
   constructor(private serviceService: ServiceService) {
@@ -39,12 +42,25 @@ export class ServiceListComponent implements OnInit {
         console.log(error);
       },
       () => {
+
+
+        console.log(this.services);
+
+        // tslint:disable-next-line:only-arrow-functions
+        this.selectedServiceId.forEach((value: any) => {
+          let index = this.services.findIndex(((ser: { id: number; }) => ser.id === value));
+          this.services[index].active = true;
+
+
+        });
+
+        console.log(this.services);
+        //
         // @ts-ignore
         this.dataSource = new MatTableDataSource(this.services);
         this.dataSource.paginator = this.paginator;
       }
     );
-
   }
 
 
