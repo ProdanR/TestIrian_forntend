@@ -6,7 +6,6 @@
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
 
-
     <!-- animalName Column -->
     <ng-container matColumnDef="animalName">
       <th mat-header-cell *matHeaderCellDef> Animal</th>
@@ -49,16 +48,28 @@
       <td mat-cell *matCellDef="let row"> {{row.totalCost}} </td>
     </ng-container>
 
-    <!-- animalName Column -->
+    <!-- edit Column -->
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef> Edit</th>
       <td mat-cell *matCellDef="let row">
-        <a mat-flat-button [routerLink]="['/edit-appointment',row.id]" >
-          <mat-icon  aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
+        <a mat-flat-button [routerLink]="['/edit-appointment',row.id]">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
         </a>
       </td>
     </ng-container>
 
+    <!-- delete Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete</th>
+      <td mat-cell *matCellDef="let row">
+        <button *ngIf="row.status==='closed'" mat-flat-button (click)="deleteAppointment(row.id)">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
+        </button>
+        <button *ngIf="!(row.status==='closed')" disabled mat-flat-button (click)="deleteAppointment(row.id)">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -69,7 +80,6 @@
     </tr>
 
   </table>
-
 
   <mat-paginator [pageSizeOptions]="[5]"></mat-paginator>
 </div>

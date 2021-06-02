@@ -9,7 +9,6 @@ import {ServiceService} from '../../rest_services/service.service';
   styleUrls: ['./service-add.component.css']
 })
 export class ServiceAddComponent implements OnInit {
-
   // @ts-ignore
   service: IService = {};
 

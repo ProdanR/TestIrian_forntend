@@ -27,6 +27,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { AppointmentEditComponent } from './appointment/appointment-edit/appointment-edit.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {HttpClientModule} from '@angular/common/http';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {HttpClientModule} from '@angular/common/http';
     ServiceAddComponent,
     ServiceListComponent,
     DoctorAddComponent,
-    AppointmentEditComponent
+    AppointmentEditComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

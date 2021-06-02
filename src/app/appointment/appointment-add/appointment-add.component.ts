@@ -1,11 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IAppointment} from '../appointment.model';
 import {Router} from '@angular/router';
-import {ServiceService} from '../../rest_services/service.service';
-import {IService} from '../../service/service.model';
 import {DoctorService} from '../../rest_services/doctor.service';
-import {IDoctor} from '../../doctor/doctor.model';
-import {MatTableDataSource} from '@angular/material/table';
 import {AppointmentService} from '../../rest_services/appointment.service';
 
 @Component({
@@ -13,18 +9,17 @@ import {AppointmentService} from '../../rest_services/appointment.service';
   templateUrl: './appointment-add.component.html',
   styleUrls: ['./appointment-add.component.css']
 })
+
 export class AppointmentAddComponent implements OnInit {
-
-
   // @ts-ignore
   appointment: IAppointment = {};
-  // @ts-ignore
   doctors: any = [];
 
   constructor(private appointmentService: AppointmentService, private doctorService: DoctorService, private router: Router) {
   }
 
   ngOnInit(): void {
+    this.appointment.services = [];
     this.doctorService.getAllDoctors().subscribe(
       (data: any) => {
         console.log(data);
@@ -46,10 +41,7 @@ export class AppointmentAddComponent implements OnInit {
         console.log(error);
       }
     );
-
-
   }
-
 
   // tslint:disable-next-line:typedef
   addService(event: any[]) {

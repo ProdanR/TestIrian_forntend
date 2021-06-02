@@ -1,9 +1,8 @@
-import {AfterViewInit, Component, Input, OnInit, Output, ViewChild, EventEmitter} from '@angular/core';
+import {Component, Input, OnInit, Output, ViewChild, EventEmitter} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-import {IAppointment} from '../../appointment/appointment.model';
 import {IService} from '../service.model';
 import {MatPaginator} from '@angular/material/paginator';
-import {MatSlideToggle, MatSlideToggleChange} from '@angular/material/slide-toggle';
+import {MatSlideToggleChange} from '@angular/material/slide-toggle';
 import {ServiceService} from '../../rest_services/service.service';
 
 
@@ -12,18 +11,14 @@ import {ServiceService} from '../../rest_services/service.service';
   templateUrl: './service-list.component.html',
   styleUrls: ['./service-list.component.css']
 })
+
 export class ServiceListComponent implements OnInit {
   displayedColumns: string[] = ['active', 'name', 'price'];
-  // @ts-ignore
   dataSource: MatTableDataSource<IService>;
 
-  // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
   @Output() serviceEvent = new EventEmitter<any[]>();
 
-
-  // @ts-ignore
   services: any = [];
 
   @Input()
@@ -42,20 +37,12 @@ export class ServiceListComponent implements OnInit {
         console.log(error);
       },
       () => {
-
-
-        console.log(this.services);
-
         // tslint:disable-next-line:only-arrow-functions
         this.selectedServiceId.forEach((value: any) => {
-          let index = this.services.findIndex(((ser: { id: number; }) => ser.id === value));
+          const index = this.services.findIndex(((ser: { id: number; }) => ser.id === value));
           this.services[index].active = true;
-
-
         });
 
-        console.log(this.services);
-        //
         // @ts-ignore
         this.dataSource = new MatTableDataSource(this.services);
         this.dataSource.paginator = this.paginator;

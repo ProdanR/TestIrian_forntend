@@ -9,8 +9,6 @@ import {DoctorService} from '../../rest_services/doctor.service';
   styleUrls: ['./doctor-add.component.css']
 })
 export class DoctorAddComponent implements OnInit {
-
-
   // @ts-ignore
   doctor: IDoctor = {};
 
@@ -28,6 +26,5 @@ export class DoctorAddComponent implements OnInit {
     }, error => {
       console.log(error);
     });
-
   }
 }
