@@ -1,9 +1,7 @@
 <button routerLink="/home" class="button_back" mat-raised-button color="primary">Back Home</button>
 
 <div class="main-div">
-
   <mat-card class="example-card">
-
     <form name="form" (ngSubmit)="f.form.valid && addAppointment()" class="example-form" #f="ngForm">
 
       <!-- animalName Input -->
@@ -26,7 +24,7 @@
         </mat-select>
       </mat-form-field>
 
-
+      <!-- ServiceList to schose from -->
       <app-service-list (serviceEvent)="addService($event)"></app-service-list>
 
       <button type="submit" mat-flat-button color="warn" class="example-full-width">Add this new Appointment</button>

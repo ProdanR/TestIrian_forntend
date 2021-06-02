@@ -5,6 +5,7 @@ import {AppointmentAddComponent} from './appointment/appointment-add/appointment
 import {ServiceAddComponent} from './service/service-add/service-add.component';
 import {DoctorAddComponent} from './doctor/doctor-add/doctor-add.component';
 import {AppointmentEditComponent} from './appointment/appointment-edit/appointment-edit.component';
+import {NotFoundComponent} from './not-found/not-found.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'new-service', component: ServiceAddComponent},
   {path: 'new-doctor', component: DoctorAddComponent},
   {path: 'edit-appointment/:id', component: AppointmentEditComponent},
+  {path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({
